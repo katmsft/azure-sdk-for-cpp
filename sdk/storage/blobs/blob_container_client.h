@@ -9,16 +9,16 @@ class BlobContainerClient
 {
 public:
     // connection string
-    BlobContainerClient(const std::string& connectionString, std::string containerName, BlobContainerClientOptions options);
+    BlobContainerClient(const std::string& connectionString, std::string containerName, BlobContainerClientOptions options = BlobContainerClientOptions());
 
     // shared key auth
-    BlobContainerClient(Azure::Core::Http::Uri uri, Azure::Storage::Common::StorageSharedKeyCredential credential, BlobContainerClientOptions options);
+    BlobContainerClient(Azure::Core::Http::Uri uri, Azure::Storage::Common::StorageSharedKeyCredential credential, BlobContainerClientOptions options = BlobContainerClientOptions());
 
     // token auth
-    BlobContainerClient(Azure::Core::Http::Uri uri, Azure::Core::TokenCredential credential, BlobContainerClientOptions options);
+    BlobContainerClient(Azure::Core::Http::Uri uri, Azure::Core::TokenCredential credential, BlobContainerClientOptions options = BlobContainerClientOptions());
 
     // anonymous/SAS/customized pipeline auth
-    BlobContainerClient(Azure::Core::Http::Uri uri, BlobContainerClientOptions options);
+    BlobContainerClient(Azure::Core::Http::Uri uri, BlobContainerClientOptions options = BlobContainerClientOptions());
 
     BlobClient GetBlobClient(const std::string& blobName);
 

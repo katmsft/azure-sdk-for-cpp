@@ -9,16 +9,16 @@ class BlobClient
 {
 public:
     // connection string
-    BlobClient(const std::string& connectionString, std::string containerName, std::string blobName, BlobClientOptions options);
+    BlobClient(const std::string& connectionString, std::string containerName, std::string blobName, BlobClientOptions options = BlobClientOptions());
 
     // shared key auth
-    BlobClient(Azure::Core::Http::Uri uri, Azure::Storage::Common::StorageSharedKeyCredential credential, BlobClientOptions options);
+    BlobClient(Azure::Core::Http::Uri uri, Azure::Storage::Common::StorageSharedKeyCredential credential, BlobClientOptions options = BlobClientOptions());
 
     // token auth
-    BlobClient(Azure::Core::Http::Uri uri, Azure::Core::TokenCredential credential, BlobClientOptions options);
+    BlobClient(Azure::Core::Http::Uri uri, Azure::Core::TokenCredential credential, BlobClientOptions options = BlobClientOptions());
 
     // anonymous/SAS/customized pipeline auth
-    BlobClient(Azure::Core::Http::Uri uri, BlobClientOptions options);
+    BlobClient(Azure::Core::Http::Uri uri, BlobClientOptions options = BlobClientOptions());
 
     void WithSnapshot(const std::string& snapshot);
     const std::string& Snapshot() const;

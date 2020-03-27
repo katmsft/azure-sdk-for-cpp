@@ -9,16 +9,16 @@ class PageBlobClient : public BlobClient
 {
 public:
     // connection string
-    PageBlobClient(const std::string& connectionString, std::string containerName, std::string blobName, BlobClientOptions options) : BlobClient(connectionString, std::move(containerName), std::move(blobName), std::move(options)) {}
+    PageBlobClient(const std::string& connectionString, std::string containerName, std::string blobName, BlobClientOptions options = BlobClientOptions()) : BlobClient(connectionString, std::move(containerName), std::move(blobName), std::move(options)) {}
 
     // shared key auth
-    PageBlobClient(Azure::Core::Http::Uri uri, Azure::Storage::Common::StorageSharedKeyCredential credential, BlobClientOptions options) : BlobClient(std::move(uri), std::move(credential), std::move(options)) {}
+    PageBlobClient(Azure::Core::Http::Uri uri, Azure::Storage::Common::StorageSharedKeyCredential credential, BlobClientOptions options = BlobClientOptions()) : BlobClient(std::move(uri), std::move(credential), std::move(options)) {}
 
     // token auth
-    PageBlobClient(Azure::Core::Http::Uri uri, Azure::Core::TokenCredential credential, BlobClientOptions options) : BlobClient(std::move(uri), std::move(credential), std::move(options)) {}
+    PageBlobClient(Azure::Core::Http::Uri uri, Azure::Core::TokenCredential credential, BlobClientOptions options = BlobClientOptions()) : BlobClient(std::move(uri), std::move(credential), std::move(options)) {}
 
     // anonymous/SAS/customized pipeline auth
-    PageBlobClient(Azure::Core::Http::Uri uri, BlobClientOptions options) : BlobClient(std::move(uri), std::move(options)) {}
+    PageBlobClient(Azure::Core::Http::Uri uri, BlobClientOptions options = BlobClientOptions()) : BlobClient(std::move(uri), std::move(options)) {}
 
     Azure::Core::Http::Response<BlobContentInfo> Create(uint64_t size, const CreatePageBlobOptions& option = CreatePageBlobOptions());
 

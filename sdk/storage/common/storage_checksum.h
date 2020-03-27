@@ -18,14 +18,14 @@ enum ChecksumType
 class Checksum
 {
 public:
-    Checksum(ChecksumType type, std::string value) : type(type), value(std::move(value)) {}
+    Checksum(ChecksumType type, std::string value) : mType(type), mValue(std::move(value)) {}
     Checksum(ChecksumType type, uint64_t value)
     {
-        if (type != ChecksumType::Crc64)
+        if (type != ChecksumType::CRC64)
         {
             throw StorageException("Invalid checksum type");
         }
-        type = type;
+        mType = type;
         // TODO: convert int value to string notation
     }
 
@@ -37,15 +37,15 @@ public:
 
     ChecksumType Type()
     {
-        return type;
+        return mType;
     }
 
     const std::string& Value()
     {
-        return value;
+        return mValue;
     }
 
 private:
-    ChecksumType type;
-    std::string value;
+    ChecksumType mType;
+    std::string mValue;
 };
