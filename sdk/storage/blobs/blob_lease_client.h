@@ -3,14 +3,14 @@
 
 #pragma once
 
-namespace Azure { namespace Storage {
+namespace Azure { namespace Storage { namespace Blobs {
 
 class BlobLeaseClient
 {
 public:
-    BlobLeaseClient(const BlobClient& blobClient, std::string leaseId) : mBlobClient(&blobClient), mLeaseId(std::move(leaseId)) {}
+    BlobLeaseClient(const BlobClient& blobClient, std::string leaseId) : m_blobClient(&blobClient), m_beaseId(std::move(leaseId)) {}
 
-    BlobLeaseClient(const BlobContainerClient& blobContainerClient, std::string leaseId) : mBlobContainerClient(&blobContainerClient), mLeaseId(std::move(leaseId)) {}
+    BlobLeaseClient(const BlobContainerClient& blobContainerClient, std::string leaseId) : m_blobContainerClient(&blobContainerClient), m_leaseId(std::move(leaseId)) {}
 
     static std::string CreateUniqueLeaseId();
 
@@ -25,9 +25,9 @@ public:
     Azure::Core::Http::Response<BlobLease> Break(const BreakLeaseOptions& options = BreakLeaseOptions());
 
 private:
-    const BlobContainerClient* mBlobContainerClient = nullptr;
-    const BlobClient* mBlobClient = nullptr;
-    std::string mLeaseId;
+    const BlobContainerClient* m_blobContainerClient = nullptr;
+    const BlobClient* m_blobClient = nullptr;
+    std::string m_leaseId;
 };
 
-}}
+}}}

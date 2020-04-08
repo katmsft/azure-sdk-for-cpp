@@ -3,7 +3,7 @@
 
 #pragma once
 
-namespace Azure { namespace Storage {
+namespace Azure { namespace Storage { namespace Blobs {
 
 class BlobContainerClient
 {
@@ -37,9 +37,9 @@ public:
     Azure::Core::Iterable<BlobItem> ListBlobs(const ListBlobsOptions& options = ListBlobsOptions());
 
 private:
-    Azure::Core::Http::Uri mContainerUri;
-    Azure::Core::Pipeline mPipeline;
-    std::string mContainerName;
+    Azure::Core::Http::Uri m_containerUri;
+    Azure::Core::Pipeline m_pipeline;
+    std::string m_containerName;
 };
 
-}}
+}}}

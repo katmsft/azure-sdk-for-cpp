@@ -3,7 +3,7 @@
 
 #pragma once
 
-namespace Azure { namespace Storage {
+namespace Azure { namespace Storage { namespace Blobs {
 
 class BlockBlobClient : public BlobClient
 {
@@ -34,4 +34,4 @@ public:
     BlobContentInfo UploadFrom(const char* buffer, uint64_t size, const UploadBlockBlobOptions& options = UploadBlockBlobOptions());
 };
 
-}}
+}}}

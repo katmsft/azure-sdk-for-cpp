@@ -3,7 +3,7 @@
 
 #pragma once
 
-namespace Azure { namespace Storage {
+namespace Azure { namespace Storage { namespace Blobs {
 
 class BlobClient
 {
@@ -46,9 +46,9 @@ public:
     BlobDownloadInfo DownloadTo(char* buffer, uint64_t size, const DownloadBlobOptions& options = DownloadBlobOptions());
 
 private:
-    Azure::Core::Http::Uri mBlobUri;
-    Azure::Core::Pipeline mPipeline;
-    std::string mBlobName;
+    Azure::Core::Http::Uri m_blobUri;
+    Azure::Core::Pipeline m_pipeline;
+    std::string m_blobName;
 };
 
-}}
+}}}

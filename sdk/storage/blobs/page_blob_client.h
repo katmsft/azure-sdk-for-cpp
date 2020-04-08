@@ -3,7 +3,7 @@
 
 #pragma once
 
-namespace Azure { namespace Storage {
+namespace Azure { namespace Storage { namespace Blobs {
 
 class PageBlobClient : public BlobClient
 {
@@ -38,4 +38,4 @@ public:
 
 };
 
-}}
+}}}
